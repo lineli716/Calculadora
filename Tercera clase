@@ -1,0 +1,112 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Calculadora
+{
+    class Operaciones
+    {
+        public Suma sum = new Suma();
+        public Resta rest = new Resta();
+        public Multiplicacion mult = new Multiplicacion();
+        public Division div = new Division();
+        public Radicacion rad = new Radicacion();
+        public Potenciacion pot = new Potenciacion();
+        public double n = 0;
+        public string Resultado(char t)
+        {
+            double total = 0;
+
+            int l = 0;
+            int g = 0;
+            int x = 0;
+            int z = 0;
+            char op = 's';
+            while (op != 'n')
+            {
+                if (t == 's')
+                {
+                    total = sum.suma(total, Pedir());
+                }
+                else if (t == 'r')
+                {
+
+                    if (l == 0)
+                    {
+                        total = Pedir();
+                        l++;
+                    }
+                    else
+                    {
+
+                        total = rest.resta(total, Pedir());
+                    }
+                }
+
+                else if (t == 'm')
+                {
+                    if (g == 0)
+                    {
+                        total = Pedir();
+                        g++;
+                    }
+                    else
+                    {
+                        total = mult.multiplicacion(total, Pedir());
+                    }
+                }
+                else if (t == 'd')
+                {
+                    if (x == 0)
+                    {
+                        total = Pedir();
+                        x++;
+                    }
+                    else
+                    {
+                        total = div.division(total, Pedir());
+                    }
+                }
+                else if (t == 'n')
+                {
+                    total = rad.radicacion(Pedir());
+                }
+                else if (t == 'p')
+                {
+                    if (z == 0)
+                    {
+                        total = Pedir();
+                        z++;
+                    }
+                    else
+                    {
+                        total = pot.potenciacion(total, Pedir());
+                    }
+                }
+
+                Console.Write("Desea ingresar otro valor [s/n] ");
+                op = char.Parse(Console.ReadLine());
+            }
+            return ("El resultado es: " + total);
+        }
+        private double Pedir()
+        {
+            double valor = 0;
+            bool estado = false;
+            while (estado == false)
+            {
+                Console.Write("Ingrese un valor: ");
+                try
+                {
+                    valor = double.Parse(Console.ReadLine());
+                    estado = true;
+                }
+                catch
+                {
+                    Console.WriteLine("Ingrese un valor: ");
+                }
+            }
+            return valor;
+        } 
+    }
+}
