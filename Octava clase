@@ -1,0 +1,16 @@
+using System;using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Calculadora
+{
+    class Radicacion
+    {
+        public double radicacion(double a)
+        {
+            double radicar = 0;
+            radicar = Math.Sqrt(a);
+            return radicar;
+        }
+    }
+}
