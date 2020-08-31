@@ -1,0 +1,16 @@
+using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace Calculadora
+{
+    class Potenciacion
+    {
+        public double potenciacion(double a, double b)
+        {
+            double potencia = 0;
+            potencia = Math.Pow(a, b);
+            return potencia;
+        }
+    }
+}
